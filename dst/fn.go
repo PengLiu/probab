@@ -1,7 +1,7 @@
 package dst
 
 import (
-	fn "code.google.com/p/go-fn/fn"
+	fn "github.com/PengLiu/go-fn/fn"
 	"math"
 )
 
@@ -10,7 +10,7 @@ const Ln2 = math.Ln2
 const M_1_SQRT_2PI = 0.398942280401432677939946059934  // 1/sqrt(2pi)
 const M_LN_SQRT_2PI = 0.918938533204672741780329736406 // log(sqrt(2*pi))
 const min64 = math.SmallestNonzeroFloat64              //   DBL_MIN
-const eps64 = 1.1102230246251565e-16                   // DBL_EPSILON   
+const eps64 = 1.1102230246251565e-16                   // DBL_EPSILON
 const maxExp = 1024.0                                  // DBL_MAX_EXP
 const sqrt2 = math.Sqrt2
 
@@ -154,7 +154,7 @@ func expm1(x float64) float64 {
 		} else { // Taylor expansion, more accurate in this range
 			y = (x/2 + 1) * x
 		}
-		// Newton step for solving   log(1 + y) = x   for y 
+		// Newton step for solving   log(1 + y) = x   for y
 		// WARNING: does not work for y ~ -1: bug in 1.5.0
 		y -= (1 + y) * (math.Log1p(y) - x)
 	} //else
